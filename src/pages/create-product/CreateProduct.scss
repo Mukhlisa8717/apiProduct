@@ -1,0 +1,69 @@
+.create{
+    height: 100%;
+    &__item{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 15px;
+        input{
+            width: 350px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid rgba(128, 128, 128, 0.692);
+            outline: none;
+        }
+        textarea{
+            width: 350px;
+            padding: 10px;
+            resize: none;
+            border: 1px solid rgba(128, 128, 128, 0.692);
+            outline: none;
+        }
+    }
+    &__selects{
+        display: flex;
+        gap: 20px;
+        margin-bottom: 15px;
+        &-item{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            select{
+                width: 100px;
+                padding: 10px;
+                border: 1px solid rgba(128, 128, 128, 0.692);
+                outline: none;
+            }
+        }
+    }
+    &__image{
+        display: block;
+        width: 150px;
+        height: 120px;
+        margin-top: 14px;
+        position: relative;
+        background: url("../../assets/defaultImage.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+        border: 1px solid rgba(128, 128, 128, 0.692);
+        border-radius: 5px;
+        input{
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    button{
+        padding: 15px;
+        width: 150px;
+        background: #0066f5;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}

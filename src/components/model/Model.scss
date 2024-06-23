@@ -1,0 +1,46 @@
+.overlay {
+    width: 100%;
+    height: 100vh;
+    background: #0006;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    animation: overlay .5s forwards;
+    z-index: 100;
+}
+
+@keyframes overlay {
+    to {
+        opacity: 1;
+    }
+}
+
+.model {
+    max-height: 80vh;
+    background-color: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%) scale(1);
+    opacity: 0;
+    padding: 30px;
+    border-radius: 24px;
+    animation: model .5s forwards;
+    overflow: auto;
+    z-index: 101;
+}
+
+@keyframes model {
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 590px) {
+    .model {
+        width: 90%;
+        padding: 15px 20px;
+    }
+}
