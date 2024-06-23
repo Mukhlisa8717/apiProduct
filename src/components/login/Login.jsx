@@ -3,6 +3,7 @@ import { useGetInputValue } from "../../hooks/useGetInputValue";
 import { useCreateUserMutation } from "../../context/api/userApi";
 import Model from "../model/Model";
 import './Login.scss'
+import { toast } from "react-toastify";
 
 const initialState = {
   UserName: "",
@@ -20,8 +21,10 @@ const Login = ({ setLoginModel }) => {
       const { data } = await createUser(formData).unwrap();
       localStorage.setItem("x-auth-token", data.token);
       localStorage.setItem("user-data", JSON.stringify(data.user));
+      setFormData(initialState)
+      toast.success("Login succes");
     } catch (err) {
-      console.error("Failed to log in:", err);
+      toast.error("Failed to log in");
     }
   };
 
@@ -39,6 +42,8 @@ const Login = ({ setLoginModel }) => {
           name="UserName"
           type="text"
           placeholder="Your username"
+          autoComplete="off"
+          required
         />
         <input
           value={formData.password}
@@ -46,6 +51,8 @@ const Login = ({ setLoginModel }) => {
           name="password"
           type="password"
           placeholder="Your password"
+          autoComplete="off"
+          required
         />
         <button disabled={isLoading}>Login</button>
         {error && <div>Error: {error.message}</div>}
